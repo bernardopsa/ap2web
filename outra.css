@@ -1,0 +1,27 @@
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    article {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #texto-espera {
+        top: auto;
+        bottom: 20px;
+    }
+}
+
+@media (min-width: 769px) {
+    article {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    #texto-espera {
+        top: 455.5px;
+        bottom: auto;
+    }
+}
