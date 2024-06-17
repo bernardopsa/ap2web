@@ -50,3 +50,13 @@ body{
     font-size: 1.7em;
 }
 
+.voltar{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 2em;
+    display: block;
+    text-align: center;
+    margin-top: 2em;
+    font-family: Neuton;
+}
