@@ -38,7 +38,7 @@ const handleClick = (evento) => {
     }
 
     localStorage.setItem('atleta', JSON.stringify(card.dataset))
-    window.location.href = `outra.html?id=${card.dataset.id}`;
+    window.location.href = `detalhes.html?id=${card.dataset.id}`;
 }
 
 const montaCard = (entrada) => {
@@ -84,7 +84,7 @@ const montaCard = (entrada) => {
 inputPesquisa.onkeyup = (ev) => {
     const searchValue = ev.target.value.toLowerCase();
     const filteredData = dados.filter(elemento => {
-        return elemento.nome.toLowerCase().includes(searchValue);
+        return elemento.nome.toLowerCase().includes(searchValue) || elemento.posicao.toLowerCase().includes(searchValue);
     });
 
     renderData(filteredData);
@@ -137,6 +137,26 @@ document.querySelectorAll('.btnFiltragem').forEach((btn, index) => {
         } else if (index === 2) {
             handleFiltragem([allURL]);
         }
+    });
+});
+
+const filtroSelect = document.getElementById('filtroSelect');
+
+filtroSelect.addEventListener('change', () => {
+    const selectedIndex = filtroSelect.selectedIndex;
+    if (selectedIndex === 0) {
+        handleFiltragem([masculinoURL]);
+    } else if (selectedIndex === 1) {
+        handleFiltragem([femininoURL]);
+    } else if (selectedIndex === 2) {
+        handleFiltragem([allURL]);
+    }
+});
+
+document.querySelectorAll('.btnFiltragem').forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        filtroSelect.selectedIndex = index;
+        filtroSelect.dispatchEvent(new Event('change'));
     });
 });
 
