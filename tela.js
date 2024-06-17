@@ -84,7 +84,7 @@ const montaCard = (entrada) => {
 inputPesquisa.onkeyup = (ev) => {
     const searchValue = ev.target.value.toLowerCase();
     const filteredData = dados.filter(elemento => {
-        return elemento.nome.toLowerCase().includes(searchValue);
+        return elemento.nome.toLowerCase().includes(searchValue) || elemento.posicao.toLowerCase().includes(searchValue);
     });
 
     renderData(filteredData);
@@ -130,32 +130,28 @@ const handleFiltragem = async (urlArray) => {
 
 document.querySelectorAll('.btnFiltragem').forEach((btn, index) => {
     btn.addEventListener('click', () => {
-        if (window.innerWidth < 768) {
-            if (index === 0) {
-                handleFiltragem([masculinoURL]);
-            } else if (index === 1) {
-                handleFiltragem([femininoURL]);
-            } else if (index === 2) {
-                handleFiltragem([allURL]);
-            }
-        }
-    });
-});
-
-const filtroSelect = document.getElementById('filtroSelect');
-
-filtroSelect.addEventListener('change', () => {
-    if (window.innerWidth >= 768) {
-        const selectedIndex = filtroSelect.selectedIndex;
-        if (selectedIndex === 0) {
-            handleFiltragem([masculinoURL]);
-        } else if (selectedIndex === 1) {
-            handleFiltragem([femininoURL]);
-        } else if (selectedIndex === 2) {
-            handleFiltragem([allURL]);
-        }
+    if (index === 0) {
+    handleFiltragem([masculinoURL]);
+    } else if (index === 1) {
+    handleFiltragem([femininoURL]);
+    } else if (index === 2) {
+    handleFiltragem([allURL]);
     }
-});
+    });
+    });
+    
+    const filtroSelect = document.getElementById('filtroSelect');
+    
+    filtroSelect.addEventListener('change', () => {
+    const selectedIndex = filtroSelect.selectedIndex;
+    if (selectedIndex === 0) {
+    handleFiltragem([masculinoURL]);
+    } else if (selectedIndex === 1) {
+    handleFiltragem([femininoURL]);
+    } else if (selectedIndex === 2) {
+    handleFiltragem([allURL]);
+    }
+    });
 
 document.querySelectorAll('.btnFiltragem').forEach((btn, index) => {
     btn.addEventListener('click', () => {
@@ -169,3 +165,5 @@ const btnSair = document.getElementById('btnSair');
 btnSair.addEventListener('click', () => {
     window.location.href = 'index.html';
 });
+
+handleFiltragem([allURL]);
