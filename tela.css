@@ -173,18 +173,50 @@ article:hover {
 
 
 .select-container {
-    display: none;
+    display: none
 }
 
-@media screen and (max-width: 767px) {
+#filtroSelect {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    width: 100%;
+    max-width: 300px;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    font-family: 'Neuton';
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none; 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#filtroSelect option {
+    background-color: white;
+    color: black;
+    font-family: 'Neuton', serif;
+    font-size: 1em;
+    border-bottom: 1px solid black;
+    padding: 0.5em;
+}
+
+#filtroSelect:hover{
+    background-color: black;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
     .btnFiltragem {
         display: none;
     }
 
     .select-container {
-        display: block;
-        margin-bottom: 1em; 
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1em;
     }
+    
 }
-
-
