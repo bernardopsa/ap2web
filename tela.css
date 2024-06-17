@@ -169,3 +169,21 @@ article:hover {
     flex-grow: 1;
     overflow: hidden;
 }
+
+
+.select-container {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .btnFiltragem {
+        display: none;
+    }
+
+    .select-container {
+        display: block;
+        margin-bottom: 1em; 
+    }
+}
+
+
