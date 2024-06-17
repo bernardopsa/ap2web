@@ -7,7 +7,7 @@ document.getElementById('btn_login').onclick = () => {
     const entradaHash = hex_sha256(entrada + sal);
     
     if (entradaHash === alvo){
-        sessionStorage.setItem('logado', 1);
+        sessionStorage.setItem('logado', 'true');
         window.location.href = 'tela.html';
     } else {
         mensagem.innerHTML = "<h2>ERRO: A senha está incorreta.</h2>";
