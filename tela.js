@@ -3,6 +3,7 @@ const verificarLogin = () => {
     if (!logado || logado !== 'true') {
         window.location.href = 'index.html';
     }
+    
 }
 
 verificarLogin();
@@ -13,31 +14,20 @@ const femininoURL = "https://botafogo-atletas.mange.li/2024-1/feminino";
 const allURL = "https://botafogo-atletas.mange.li/2024-1/all";
 
 const divPesquisa = document.createElement('div');
-divPesquisa.style.textAlign = 'center';
-divPesquisa.style.padding = '2em';
+divPesquisa.classList.add('div-pesquisa');
 
 const inputPesquisa = document.createElement('input');
+inputPesquisa.classList.add('input-pesquisa');
 inputPesquisa.type = 'search';
 inputPesquisa.name = 'pesquisa';
 inputPesquisa.placeholder = "BUSQUE PELO NOME";
-inputPesquisa.style.textAlign = 'center';
-inputPesquisa.style.lineHeight = '3em';
-inputPesquisa.style.maxWidth = '80%';
-inputPesquisa.style.width = '30em';
 
+inputPesquisa.classList.add('input-pesquisa');
 divPesquisa.appendChild(inputPesquisa);
 document.body.appendChild(divPesquisa);
 
 const conteudo = document.createElement('div');
-conteudo.style.display = 'flex';
-conteudo.style.flexWrap = 'wrap';
-conteudo.style.justifyContent = 'center';
-conteudo.style.alignItems = 'flex-start';
-conteudo.style.gap = '10px';
-conteudo.style.maxWidth = '1200px';
-conteudo.style.margin = '0 auto';
 conteudo.innerHTML = '';
-
 conteudo.classList.add('conteudo-container');
 document.body.appendChild(conteudo);
 
@@ -53,19 +43,7 @@ const handleClick = (evento) => {
 
 const montaCard = (entrada) => {
     const card = document.createElement('article');
-    card.style.display = 'flex';
-    card.style.flexDirection = 'column';
-    card.style.alignItems = 'center';
-    card.style.width = '220px';
-    card.style.height = '400px';
-    card.style.margin = '10px';
-    card.style.textAlign = 'center';
-    card.style.backgroundColor = 'white';
-    card.style.padding = '0.5em';
-    card.style.cursor = 'pointer';
-    card.style.boxSizing = 'border-box';
-    card.style.border ='solid 3px black';
-    card.style.borderRadius='5px';
+    card.classList.add('card')
 
     card.dataset.id = entrada.id;
     card.dataset.elenco = entrada.elenco;
@@ -81,37 +59,19 @@ const montaCard = (entrada) => {
     card.onclick = handleClick;
 
     const imgContainer = document.createElement('div');
-    imgContainer.style.width = '100%';
-    imgContainer.style.flexGrow = '1';
-    imgContainer.style.overflow = 'hidden';
+    imgContainer.classList.add('imagem-container');
 
     const imagem = document.createElement('img');
     imagem.src = entrada.imagem;
-    imagem.style.width = '220px';
-    imagem.style.height = '300px';
-    imagem.style.objectFit = 'none'; 
-    imagem.style.objectPosition = '100% 10%';
+    imagem.classList.add('imagem-atleta');
 
     const saibaMais = document.createElement('h3');
     saibaMais.innerHTML = `Saiba Mais`;
-    saibaMais.style.cssText = `
-        background-color: black;
-        color: white;
-        padding: 0.5em 0;
-        width: 100%;
-        margin-top: 0;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-    `;
+    saibaMais.classList.add('saiba-mais')
 
     const nome = document.createElement('h3');
     nome.innerHTML = entrada.nome;
-    nome.style.margin = '10px 0';
-    nome.style.fontSize = '1.3em'; 
-    nome.style.minHeight = '40px';
-    nome.style.display = 'flex';
-    nome.style.alignItems = 'center';
-    nome.style.justifyContent = 'center';
+    nome.classList.add('nome-atleta');
 
     imgContainer.appendChild(imagem);
     card.appendChild(imgContainer);
@@ -135,16 +95,7 @@ const showLoading = async () => {
 
     const loadingDiv = document.createElement('div');
     loadingDiv.textContent = 'Carregando...';
-    loadingDiv.style.textAlign = 'center';
-    loadingDiv.style.fontSize = '1.8em';
-    loadingDiv.style.padding = '1em';
-    loadingDiv.style.width = '100%';
-    loadingDiv.style.position = 'fixed';
-    loadingDiv.style.top = '50%';
-    loadingDiv.style.left = '0';
-    loadingDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-    loadingDiv.style.fontFamily = 'Neuton'
-    loadingDiv.style.zIndex = '9999';
+    loadingDiv.classList.add('carregamento')
 
     document.body.appendChild(loadingDiv);
 
