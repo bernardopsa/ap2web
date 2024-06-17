@@ -69,30 +69,31 @@ const carregarDetalhesAtleta = async (id) => {
         const response = await fetch(`https://botafogo-atletas.mange.li/2024-1/${id}`);
         
         const atleta = await response.json();
-        document.body.appendChild(montaCard(atleta));
-        document.body.appendChild(voltar);
+        const card = montaCard(atleta); // Cria o card
+        document.body.appendChild(card); // Adiciona o card ao corpo do documento
+        document.body.appendChild(voltar); // Adiciona o botão "Voltar"
+
+        handleMediaQuery(mediaQuery, card);
     } catch (error) {
         console.error('Erro:', error);
         alert('Erro ao carregar dados do atleta.');
     }
 }
 
-carregarDetalhesAtleta(atletaId);
-
-const mediaQuery = window.matchMedia('(max-width: 768px)');
-function handleMediaQuery(mediaQuery) {
+const handleMediaQuery = (mediaQuery, card) => {
     if (mediaQuery.matches) {
         document.body.style.flexDirection = 'column';
-        const card = document.querySelector('article');
         card.style.flexDirection = 'column';
         card.style.textAlign = 'center';
     } else {
         document.body.style.flexDirection = 'column';
-        const card = document.querySelector('article');
         card.style.flexDirection = 'row';
         card.style.textAlign = 'left';
     }
 }
 
-handleMediaQuery(mediaQuery);
-mediaQuery.addListener(handleMediaQuery);
+carregarDetalhesAtleta(atletaId);
+
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+mediaQuery.addListener(() => handleMediaQuery(mediaQuery, document.querySelector('article')));
+
