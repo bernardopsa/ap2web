@@ -84,7 +84,7 @@ const montaCard = (entrada) => {
 inputPesquisa.onkeyup = (ev) => {
     const searchValue = ev.target.value.toLowerCase();
     const filteredData = dados.filter(elemento => {
-        return elemento.nome.toLowerCase().includes(searchValue) || elemento.posicao.toLowerCase().includes(searchValue);
+        return elemento.nome.toLowerCase().includes(searchValue);
     });
 
     renderData(filteredData);
