@@ -1,3 +1,12 @@
+const verificarLogin = () => {
+    const logado = sessionStorage.getItem('logado');
+    if (!logado || logado !== 'true') {
+        window.location.href = 'index.html';
+    }
+}
+
+verificarLogin();
+
 let dados = [];
 const masculinoURL = "https://botafogo-atletas.mange.li/2024-1/masculino";
 const femininoURL = "https://botafogo-atletas.mange.li/2024-1/feminino";
