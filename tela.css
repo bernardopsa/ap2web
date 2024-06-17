@@ -35,6 +35,15 @@ p,a {
     font-weight: normal;
   }
 
+  .nome-atleta{
+    margin: 10px 0;
+    font-size: 1.3em;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 #btnSair{
     background-color: black;
     border: none;
@@ -65,14 +74,14 @@ p,a {
     max-width: 6em;
     border-radius: 5px;
     box-shadow: inset 0 0 0 2px white;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Adiciona a transição suave */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .btnFiltragem:hover,
 .btnFiltragem.active, #btnSair:hover {
     background-color: white;
     color: black;
-    box-shadow: inset 0 0 0 2px black; /* Cria uma borda interna */
+    box-shadow: inset 0 0 0 2px black; 
 }
 
 article {
@@ -85,4 +94,78 @@ article:hover {
 
 .hide-content {
     display: none;
+}
+
+.input-pesquisa{
+    text-align: center;
+    line-height: 3em;
+    max-width: 80%;
+    width: 30em;
+}
+
+.div-pesquisa{
+    text-align: center;
+    padding: 2em;
+}
+
+.conteudo-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+    height: 400px;
+    margin: 10px;
+    text-align: center;
+    background-color: white;
+    padding: 0.5em;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: solid 3px black;
+    border-radius: 5px;
+}
+
+.saiba-mais{
+    background-color: black;
+    color: white;
+    padding: 0.5em 0;
+    width: 100%;
+    margin-top: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.carregamento{
+    text-align: center;
+    font-size: 1.8em;
+    padding: 1em;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: Neuton;
+    z-index: 9999;
+}
+
+.imagem-atleta{
+    width: 220px;
+    height: 300px;
+    object-fit: none;
+    object-position: 100% 10%;
+}
+
+.imagem-container{
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
 }
