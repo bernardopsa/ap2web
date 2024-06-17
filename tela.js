@@ -128,15 +128,16 @@ const handleFiltragem = async (urlArray) => {
     renderData(dados);
 }
 
-
 document.querySelectorAll('.btnFiltragem').forEach((btn, index) => {
     btn.addEventListener('click', () => {
-        if (index === 0) {
-            handleFiltragem([masculinoURL]);
-        } else if (index === 1) {
-            handleFiltragem([femininoURL]);
-        } else if (index === 2) {
-            handleFiltragem([allURL]);
+        if (window.innerWidth < 768) {
+            if (index === 0) {
+                handleFiltragem([masculinoURL]);
+            } else if (index === 1) {
+                handleFiltragem([femininoURL]);
+            } else if (index === 2) {
+                handleFiltragem([allURL]);
+            }
         }
     });
 });
@@ -144,13 +145,15 @@ document.querySelectorAll('.btnFiltragem').forEach((btn, index) => {
 const filtroSelect = document.getElementById('filtroSelect');
 
 filtroSelect.addEventListener('change', () => {
-    const selectedIndex = filtroSelect.selectedIndex;
-    if (selectedIndex === 0) {
-        handleFiltragem([masculinoURL]);
-    } else if (selectedIndex === 1) {
-        handleFiltragem([femininoURL]);
-    } else if (selectedIndex === 2) {
-        handleFiltragem([allURL]);
+    if (window.innerWidth >= 768) {
+        const selectedIndex = filtroSelect.selectedIndex;
+        if (selectedIndex === 0) {
+            handleFiltragem([masculinoURL]);
+        } else if (selectedIndex === 1) {
+            handleFiltragem([femininoURL]);
+        } else if (selectedIndex === 2) {
+            handleFiltragem([allURL]);
+        }
     }
 });
 
@@ -160,6 +163,7 @@ document.querySelectorAll('.btnFiltragem').forEach((btn, index) => {
         filtroSelect.dispatchEvent(new Event('change'));
     });
 });
+
 
 const btnSair = document.getElementById('btnSair');
 btnSair.addEventListener('click', () => {
