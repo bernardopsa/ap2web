@@ -5,6 +5,8 @@ const verificarLogin = () => {
     }
 }
 
+verificarLogin();
+
 const montaCard = (entrada) => {
     const card = document.createElement('article');
     card.classList.add('card');
