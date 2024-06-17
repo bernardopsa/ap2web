@@ -123,10 +123,11 @@ const handleFiltragem = async (urlArray) => {
     dados = [];
     for (const url of urlArray) {
         const fetchedData = await pegaDados(url);
-        dados = dados.concat(fetchedData);
+        dados.push(...fetchedData);
     }
     renderData(dados);
 }
+
 
 document.querySelectorAll('.btnFiltragem').forEach((btn, index) => {
     btn.addEventListener('click', () => {
